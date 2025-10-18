@@ -1,0 +1,50 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+form {
+  border : 3px solid white;
+  padding : 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width : 80%;
+  max-width: 600px;
+  gap : 10px;
+}
+form h1 {
+}
+.name-container {
+  display: flex;
+  align-items: center;
+  gap : 10px;
+  width: 80%;
+  height: 30px;
+}
+.name-container input {
+  width: 100%;
+  height: 100%;
+}
+
+.descriptors-name {
+  font-size: 1.5em;
+}
+.descriptors-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 5%;
+  gap : 10px;
+}
+
+form button {
+}
+
+.type-value{
+  display: flex;
+}
