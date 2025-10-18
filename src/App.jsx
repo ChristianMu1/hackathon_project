@@ -1,7 +1,8 @@
 import { useState } from "react";
-import {constructPrompt} from "./prompt.js"
+import { constructPrompt } from "./prompt.js";
 import "./App.css";
-import logo from "./assets/find_a_team_logo.png"
+import logo from "./assets/find_a_team_logo.png";
+import { pickTeammate } from "./prompt.js";
 
 //Make sure they can only have three max
 
@@ -35,12 +36,20 @@ function App() {
     });
     // console.log(reqBody)
 
-    const prompt = constructPrompt(reqBody);
+    // const prompt = constructPrompt(reqBody);
     //returns a JSON
-    console.log(prompt)
+    // console.log(prompt);
+    const chosenTeammate = pickTeammate();
+    setResponses(chosenTeammate);
+
+    console.log(chosenTeammate);
 
     // Display people
-    setDisplayPrompt(false);
+    if (chosenTeammate === null) {
+      setDisplayPrompt(true);
+    } else {
+      setDisplayPrompt(false);
+    }
   }
 
   return (
@@ -48,7 +57,7 @@ function App() {
       {displayPrompt ? (
         <form onSubmit={handleSubmit}>
           <h1>Team Search</h1>
-          <img src={logo}/>
+          <img src={logo} />
 
           <div className="name-container">
             <input
@@ -117,8 +126,16 @@ function App() {
         </form>
       ) : (
         <h1>
-          {responses}
-          <button onClick={() => setDisplayPrompt(true)} className="reset-button">Search</button>
+          <div>
+            {/* <p>{responses}</p> */}
+          </div>
+
+          <button
+            onClick={() => setDisplayPrompt(true)}
+            className="reset-button"
+          >
+            Search
+          </button>
         </h1>
       )}
     </main>
