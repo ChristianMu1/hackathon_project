@@ -1,24 +1,18 @@
-function constructPrompt(reqBody) {
-  //dummy data
-  const peersList = [];
-
-  const peer1 = new Peer("John Doe", ["Python", "AI/LLM", "Data Scientist"]);
-  peersList.push(peer1);
-
-  const peer2 = new Peer("Jane Smith", [
-    "JavaScript",
-    "Prompt engineer",
-    "MongoDB",
-  ]);
-  peersList.push(peer2);
-
-  const peer3 = new Peer("Another Person", ["Engineer", "AI/LLM", "Hackathon"]);
-  peersList.push(peer3);
-
-  //concat to create prompt string
-  const peerDescriptions = peersList
+//concat to create prompt
+function constructPrompt(reqBody,dummyData) {
+  const peerDescriptions = dummyData
     .map((peer) => `${peer.name}: ${peer.descriptors.join(", ")}`)
     .join("; ");
 
-  return `Given ${peerDescriptions}, give me the name of the person whose descriptors match the most. If tied, pick one random person.`;
+  return `Given ${peerDescriptions}, give me the name of the person whose descriptors match ${reqBody} the most. If tied, pick one random person.`;
+}
+
+//hard-coded teammate selector
+function pickTeammate(dummyData){
+  if (!Array.isArray(dummyData) || dummyData.length === 0) {
+    return null;
+  }
+
+  const chosenIndex = Math.floor(Math.random() * dummyData.length);
+  return dummyData[chosenIndex];
 }
