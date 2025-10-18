@@ -126,9 +126,7 @@ function App() {
         </form>
       ) : (
         <h1>
-          <div>
-            {/* <p>{responses}</p> */}
-          </div>
+          <div>{/* <p>{responses}</p> */}</div>
 
           <button
             onClick={() => setDisplayPrompt(true)}
