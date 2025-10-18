@@ -54,7 +54,7 @@ function App() {
 
   return (
     <main>
-      {displayPrompt ? (
+      {displayPrompt ? <>
         <form onSubmit={handleSubmit}>
           <h1>Team Search</h1>
           <img src={logo} />
@@ -124,18 +124,21 @@ function App() {
 
           <button type="submit"> Look For Teammates </button>
         </form>
-      ) : (
-        <h1>
-          <div>{/* <p>{responses}</p> */}</div>
+      </> : <main className="results">
+        <section className="teammate">
+          <div className="teammate-name">{responses.name}</div>
+          <div>
+            {responses.descriptors.join(", ")}
+          </div>
 
+        </section>
           <button
             onClick={() => setDisplayPrompt(true)}
             className="reset-button"
           >
             Search
           </button>
-        </h1>
-      )}
+      </main>}
     </main>
   );
 }
