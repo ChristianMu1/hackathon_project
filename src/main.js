@@ -9,7 +9,7 @@ const ai = new GoogleGenAI({});
 async function main() {
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
-    contents: "Reply with hello world + a random name",
+    contents: "Prompt",
   });
   console.log(response.text);
 }
