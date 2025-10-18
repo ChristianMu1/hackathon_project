@@ -16,7 +16,9 @@ form {
   max-width: 600px;
   gap: 10px;
 }
-form h1 {
+form img {
+  width: 40%;
+  aspect-ratio: 1/1;
 }
 .name-container {
   display: flex;
@@ -40,9 +42,6 @@ form h1 {
   flex-wrap: wrap;
   padding: 5%;
   gap: 10px;
-}
-
-form button {
 }
 
 .type-value {

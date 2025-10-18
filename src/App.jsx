@@ -1,11 +1,13 @@
 import { useState } from "react";
+import {constructPrompt} from "./prompt.js"
 import "./App.css";
+import logo from "./assets/find_a_team_logo.png"
 
 //Make sure they can only have three max
 
 function App() {
   const [displayPrompt, setDisplayPrompt] = useState(true);
-  const [responses, setResponses] = useState(<p>No Responses So Far</p>);
+  const [responses, setResponses] = useState(<p>No Responses</p>);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -33,15 +35,9 @@ function App() {
     });
     // console.log(reqBody)
 
-    // Send to backend
-    fetch("httpBLABLABLA", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: reqBody,
-    }).then((response) => console.log(response));
-
+    const prompt = constructPrompt(reqBody);
     //returns a JSON
+    console.log(prompt)
 
     // Display people
     setDisplayPrompt(false);
@@ -52,6 +48,7 @@ function App() {
       {displayPrompt ? (
         <form onSubmit={handleSubmit}>
           <h1>Team Search</h1>
+          <img src={logo}/>
 
           <div className="name-container">
             <input
@@ -121,7 +118,7 @@ function App() {
       ) : (
         <h1>
           {responses}
-          <button onClick={() => setDisplayPrompt(true)}>Search</button>
+          <button onClick={() => setDisplayPrompt(true)} className="reset-button">Search</button>
         </h1>
       )}
     </main>
