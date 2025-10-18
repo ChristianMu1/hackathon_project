@@ -6,22 +6,22 @@
 }
 
 form {
-  border : 3px solid white;
-  padding : 10%;
+  border: 3px solid white;
+  padding: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  width : 80%;
+  width: 80%;
   max-width: 600px;
-  gap : 10px;
+  gap: 10px;
 }
 form h1 {
 }
 .name-container {
   display: flex;
   align-items: center;
-  gap : 10px;
+  gap: 10px;
   width: 80%;
   height: 30px;
 }
@@ -39,12 +39,12 @@ form h1 {
   justify-content: center;
   flex-wrap: wrap;
   padding: 5%;
-  gap : 10px;
+  gap: 10px;
 }
 
 form button {
 }
 
-.type-value{
+.type-value {
   display: flex;
 }

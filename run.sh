@@ -1,3 +1,3 @@
 #!/bin/bash
 npx prettier --write .
-node src/main.js
+npm run dev
